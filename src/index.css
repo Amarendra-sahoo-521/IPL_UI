@@ -2,4 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
- 
+body{
+  background-color: #ffffff00;
+ }
+@keyframes rotateCoin {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+  /* .maincont{
+    
+   background:  linear-gradient(60deg, #f26522 ,#f26522,#f26522, rgba(255, 255, 255, 0.8) ) ;
+  } */
+  .coin:hover {
+    animation: rotateCoin 3s ease-out forwards;
+  }
+ .cap{
+  position: absolute;
+  top: 350px;
+  left: 70%;
+ }
+ .cup{
+    animation: pop 2s ease-in-out  1 alternate forwards;
+    transition: all 0.5s ease-in-out;
+    
+ }
+ .cup:hover{
+    transform: scale(1.2);
+ }
+ @keyframes pop {
+    0% {
+        
+        margin-top: 64px;
+    }
+    75%{
+        margin-top: -10px; 
+    }
+    100%{
+        margin-top: 0px; 
+    }
+ }
+ .capimg{
+  transition: all 0.5s;
+ }
+ .capimg:hover{
+  transform: scale(1.1);
+ }
+ .card{
+  border-radius: 5px;
+ }
+ .name{
+  border-top: 1px solid black;
+ }

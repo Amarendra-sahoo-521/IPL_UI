@@ -1,7 +1,5 @@
 import  { useState, useEffect, CSSProperties } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { getBanner, getPostt, teamAllData } from './api';
-import { useMutation, useQuery } from '@tanstack/react-query';
 import { API_URL, BASE_URL } from '../../utils/endpoint';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,11 +7,7 @@ interface CustomCSSProperties extends CSSProperties {
     // Add any custom properties if needed
     transition?: string; // Optional if you want to define specific transitions
   }
-  function getComplementaryColor(hex:string) { 
-    hex = hex.replace(/^#/, ''); const r = (255 - parseInt(hex.substring(0, 2), 16)).toString(16).padStart(2, '0'); const g = (255 - parseInt(hex.substring(2, 4), 16)).toString(16).padStart(2, '0'); const b = (255 - parseInt(hex.substring(4, 6), 16)).toString(16).padStart(2, '0');
-    
-     return `#${r}${g}${b}`.toUpperCase(); 
-}
+ 
 
 
 type SmoothOverlapSliderProps = {
@@ -26,7 +20,7 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState('');
   
-
+  localStorage.setItem("allData", JSON.stringify(cards));
 
  
   const navigate = useNavigate();
@@ -124,7 +118,8 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
           {[...Array(3)].map((_, i) => {
             const card:any = getCardAtOffset(i - 1); 
             const cardStyles = getCardStyles(i - 1);
-        
+            
+            
             
             return (
               <div 
@@ -135,7 +130,10 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
                   } as CustomCSSProperties} 
               >
                
-                <div className="w-2/5 h-56 bg-slate-400 cursor-pointer rounded-xl overflow-hidden shadow-2xl" onClick={()=>handleClick(card.id)}>
+                <div className="w-2/5 h-56 cursor-pointer rounded-xl overflow-hidden shadow-2xl" 
+                onClick={()=>handleClick(card.id)}
+                style={{backgroundColor: card.them}}
+                >
                   <img 
                   src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(card.banner)}`}
                   alt= {card.name}

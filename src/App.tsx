@@ -1,18 +1,19 @@
-import { useEffect, useState } from 'react'
 import Heroheader from './components/Hero/Heroheader';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Team from './components/Team';
+import { NavbarProvider } from "./context/navbarcontext";
 function App() {
  
   return (
     <>
-      
+    <NavbarProvider >
       <Router>
       <Routes>
         <Route path="/" element={<Heroheader  />} />
         <Route path="/team/:id" element={<Team />} />
       </Routes>
     </Router>
+    </NavbarProvider>
     </>
   )
 }
