@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useNavbar } from '../../context/navbarcontext';
 import { isLightColor } from '../../utils/functions';
 type prop = {
@@ -5,6 +6,9 @@ bgc:string
 }
 const NavBar = ({bgc}:prop) => {
     const { activeItem, setActiveItem } = useNavbar();  
+    useEffect(()=>{
+      setActiveItem('SQUAD')
+    },[])
   const navItems = [
     'SQUAD',
     'FIXTURES',

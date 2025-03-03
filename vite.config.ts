@@ -7,5 +7,5 @@ export default defineConfig({
   server:{
     open: true
   },
-  base: "/IPL_UI/",
+  // base: "/IPL_UI/",
 })

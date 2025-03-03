@@ -1,5 +1,5 @@
 import Heroheader from './components/Hero/Heroheader';
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Team from './components/Team';
 import { NavbarProvider } from "./context/navbarcontext";
 function App() {
