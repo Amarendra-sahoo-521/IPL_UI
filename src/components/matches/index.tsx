@@ -4,7 +4,8 @@ import { API_URL, BASE_URL } from "../../utils/endpoint";
 
 type prop = {
   id: number;
-  homematch :boolean
+  homematch :boolean;
+  
 };
 function Matches({ id, homematch }: prop) {
   
@@ -21,7 +22,7 @@ function Matches({ id, homematch }: prop) {
     <>
       {data && (
         <div className="m-10 h-auto w-auto">
-          <p className="bold font-medium text-3xl">Fixtures</p>
+          <p className="bold font-medium text-3xl">Matches</p>
           {data.map((item: any) => (
             <div className="mx-10 my-5 h-28 w-auto  flex" key={item.id} style={{borderBottom:'1px solid black'}}>
               <div className="chl h-24 w-40 my-auto">

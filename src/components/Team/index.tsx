@@ -1,11 +1,9 @@
-import { useMutation, useQuery } from "@tanstack/react-query";
-
-import { useNavigate, useParams } from "react-router-dom";
+import { useMutation } from "@tanstack/react-query";
+import {  useParams } from "react-router-dom";
 import { fetchCardDetails } from "./api";
 import { API_URL, BASE_URL } from "../../utils/endpoint";
 import { isLightColor } from "../../utils/functions";
 import { useEffect, useState } from "react";
-import { getPostt } from "../Hero/api";
 import SquardSection from "../SquardSection";
 import Matches from "../matches";
 import NavBar from "../Navbar";
@@ -17,7 +15,7 @@ function Team() {
   const { activeItem } = useNavbar();
 
   // api calls
-  const { mutate, data, error } = useMutation({
+  const { mutate, data } = useMutation({
     mutationFn: (id: number) => fetchCardDetails(id),
   });
   useEffect(() => {
@@ -153,11 +151,11 @@ function Team() {
           </div>
         ) : activeItem == "FIXTURES" ? (
           <div className="matches">
-            <Matches id={res.id} homematch={false}/>
+            <Matches id={res.id} homematch={false}  />
           </div>
         ) : activeItem == "HOMEGAME" ? (
           <div className="matches">
-            <Matches id={res.id} homematch={true}/>
+            <Matches id={res.id} homematch={true} />
           </div> ): null}
       </>
     );

@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import { useNavbar } from '../../context/navbarcontext';
+import { isLightColor } from '../../utils/functions';
 type prop = {
 bgc:string
 }
@@ -13,7 +13,7 @@ const NavBar = ({bgc}:prop) => {
     // 'NEWS',
     // 'ARCHIVE'
   ];
-  
+  const colortype = isLightColor(bgc);
   const handleClick = (item:string) => {
     setActiveItem(item);
   };
@@ -29,10 +29,12 @@ const NavBar = ({bgc}:prop) => {
               onClick={() => handleClick(item)}
               className={`px-4 py-1 font-medium text-sm transition-colors ${
                 activeItem === item
-                  ? 'text-white rounded-lg mx-1'
+                  ? ' rounded-lg mx-1'
                   : 'text-gray-300 hover:text-white mx-1'
               }`}
-              style={{backgroundColor: activeItem === item ? bgc ? bgc : 'blue' : '#00091a'}}
+              style={{backgroundColor: activeItem === item ? bgc ? bgc : 'blue' : '#00091a',
+                color : activeItem === item ? colortype ? '#fff' : '#000' : '#fff'
+              }}
             >
               {item}
             </button>
