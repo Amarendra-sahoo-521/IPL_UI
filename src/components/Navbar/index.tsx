@@ -12,8 +12,8 @@ const NavBar = ({bgc}:prop) => {
   const navItems = [
     'SQUAD',
     'FIXTURES',
-    'HOMEGAME',
-     'VIDEOS',
+    'HOMEGAMES',
+    //  'VIDEOS',
     // 'NEWS',
     // 'ARCHIVE'
   ];

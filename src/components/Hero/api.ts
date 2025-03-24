@@ -27,7 +27,21 @@ export const teamAllData = async () => {
 export const getPostt = async () => {
   const url = `${BASE_URL}${API_URL.TEAM.GETALL}`
   const response = await axios.get(url);
-  // console.log(response.data);
+ 
+  
+  return response.data;
+};
+export const getorangecap = async () => {
+  const url = `${BASE_URL}${API_URL.PLAYER.ORANGECAP}`
+  const response = await axios.get(url);
+
+  
+  return response.data;
+};
+export const getPurpolCap = async () => {
+  const url = `${BASE_URL}${API_URL.PLAYER.PURPULCAP}`
+  const response = await axios.get(url);
+ 
   
   return response.data;
 };

@@ -1,9 +1,18 @@
+import { useNavigate } from "react-router-dom";
+import { image_path } from "../../utils/constats";
 
 type prop = {
     title:string,
     players: any[]
 }
 function SquardSection({title, players}:prop) {
+console.log(players);
+
+  const navigate = useNavigate();
+
+  const handleClick = (id:number) => {
+    navigate(`/player/${id}`);  
+  };
   return (
     <>
     <div className="h-auto w-auto  m-10">
@@ -11,14 +20,17 @@ function SquardSection({title, players}:prop) {
       <div className="pcont flex flex-wrap px-3">
       {players.map((item:any)=>(
         <div 
-        className="card h-72 w-60 m-2 text-center bg-white border border-black"
+        className="card h-72 w-60 m-2 text-center bg-white border border-black cursor-pointer"
         key={item.id}
-        >
+        onClick={()=>handleClick(item.id)}
+        > 
+        
+       {item?.from != "India"  && <img src="https://www.iplt20.com/assets/images/teams-foreign-player-icon.svg" alt="" style={{position:'absolute',transform:'scale(1.2)',margin:'3px'}} />}
              <img
                   src={
                     item.photo
                       ? item.photo
-                      : "https://www.iplt20.com/assets/images/default-headshot.png"
+                      : image_path.DEFAULT_IMAGE
                   }
                   alt={item.name}
                   className="h-60  mx-auto"

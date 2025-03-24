@@ -14,3 +14,13 @@ export const fetchMyHomeMatches = async (ID :number) => {
     const response = await axios.get(url);
     return response.data.data;
   };
+export const fatchAllMatches = async(page:number)=>{
+  const url = `${BASE_URL}${API_URL.MATCHES.MATCHES}${page}`
+  const responce = await axios.get(url)
+  return responce.data.data;
+}
+export const fatchAdminMatches = async ()=>{
+  const url = `${BASE_URL}${API_URL.MATCHES.ADMIN_MATCHES}`
+  const responce = await axios.get(url)
+  return responce.data.data;
+}

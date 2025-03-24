@@ -8,6 +8,8 @@ import SquardSection from "../SquardSection";
 import Matches from "../matches";
 import NavBar from "../Navbar";
 import { useNavbar } from "../../context/navbarcontext";
+import Navtab from "../Core_components/Navtab";
+import { image_path, menus } from "../../utils/constats";
 
 function Team() {
   const { id } = useParams();
@@ -33,7 +35,7 @@ function Team() {
     }
     allData = allData.filter((item: any) => item.id != res.id);
 
-    console.log(res);
+    // console.log(res);
 
     // variable innitialization
     const trophy = res.winning_year ? res.winning_year.split(",") : [];
@@ -43,7 +45,8 @@ function Team() {
     const allRounder = res.players.filter((item: any) => item.designation == 3);
     return (
       <>
-        <div className="pannel h-24 w-full  absolute left-0 top-0 flex justify-evenly bg-blue-300">
+        <Navtab menu = {menus}/>
+        <div className="pannel h-24 w-full left-0 top-0 flex justify-evenly bg-[#bddad295]">
           {allData &&
             allData.map((item: any, index: number) => (
               <div
@@ -61,7 +64,7 @@ function Team() {
             ))}
         </div>
         <div
-          className="maincont h-72 mt-24 w-full flex justify-evenly "
+          className="maincont h-72 w-full flex justify-evenly "
           style={{
             // background: `linear-gradient(90deg, ${res.them},${res.them},${res.them} , white )`,
             background: `linear-gradient(55deg, ${res.them} 70%, rgba(255, 255, 255, 0.8) 30%)`,
@@ -125,7 +128,7 @@ function Team() {
                   src={
                     res?.captainData?.photo
                       ? res?.captainData?.photo
-                      : "https://www.iplt20.com/assets/images/default-headshot.png"
+                      : image_path.DEFAULT_IMAGE
                   }
                   alt={res?.captainData?.name}
                 />
@@ -153,7 +156,7 @@ function Team() {
           <div className="matches">
             <Matches id={res.id} homematch={false}  />
           </div>
-        ) : activeItem == "HOMEGAME" ? (
+        ) : activeItem == "HOMEGAMES" ? (
           <div className="matches">
             <Matches id={res.id} homematch={true} />
           </div> ): null}

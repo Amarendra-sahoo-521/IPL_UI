@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  /* font-family: sans-serif; */
+  box-sizing: border-box;
+}
 body{
   background-color: #ffffff00;
  }
@@ -22,8 +26,8 @@ body{
   }
  .cap{
   position: absolute;
-  top: 350px;
-  left: 70%;
+  top: 415px;
+  left: 71%;
  }
  .cup{
     animation: pop 2s ease-in-out  1 alternate forwards;

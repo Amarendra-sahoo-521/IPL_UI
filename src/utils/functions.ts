@@ -18,3 +18,14 @@ export const isLightColor = (hex: string): 0 | 1 => {
     // Return 1 if light, otherwise 0
     return luminance >= 128 ? 0 : 1;
 };
+
+export function formatToIndianShort(amount:number) {
+    if (amount >= 10000000) {
+      return (amount / 10000000).toFixed(1).replace(/\.0$/, '') + 'cr'; // Crores
+    } else if (amount >= 100000) {
+      return (amount / 100000).toFixed(1).replace(/\.0$/, '') + 'L'; // Lakhs
+    } else if (amount >= 1000) {
+      return (amount / 1000).toFixed(1).replace(/\.0$/, '') + 'K'; // Thousands
+    }
+    return amount.toString(); // Less than 1K
+  }

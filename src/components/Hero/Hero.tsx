@@ -2,6 +2,7 @@ import  { useState, useEffect, CSSProperties } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { API_URL, BASE_URL } from '../../utils/endpoint';
 import { useNavigate } from 'react-router-dom';
+import { isLightColor } from '../../utils/functions';
 
 interface CustomCSSProperties extends CSSProperties {
     // Add any custom properties if needed
@@ -92,12 +93,11 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
     };
   };
 
+
   return (
-    <div className="w-screen py-8 bg-[#ff0707] overflow-hidden absolute top-16 ">
+    <div className="w-screen py-8 bg-[#bddad295] overflow-hidden top-16 ">
       <div className="container relative ">
-        <h2 className="text-white text-xl mx-10 font-bold mb-6">{title}</h2>
-        
-        {/* Navigation Buttons */}
+      
         <button 
           onClick={handlePrev} 
           className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 rounded-full p-2 hover:bg-black/70"
@@ -118,6 +118,8 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
           {[...Array(3)].map((_, i) => {
             const card:any = getCardAtOffset(i - 1); 
             const cardStyles = getCardStyles(i - 1);
+            const font = isLightColor(card.them);
+            // console.log('font----------->',font);
             
             
             
@@ -132,7 +134,7 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
                
                 <div className="w-2/5 h-56 cursor-pointer rounded-xl overflow-hidden shadow-2xl" 
                 onClick={()=>handleClick(card.id)}
-                style={{backgroundColor: card.them}}
+                style={{backgroundColor: card.them, }}
                 >
                   <img 
                   src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(card.banner)}`}
@@ -140,7 +142,7 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
                  
                   className="w-40 h-40 mx-auto overflow-hidden object-cover"  /> 
                   <div className="p-4 w-full  flex justify-center">
-                    <h2 className="text-black font-bold text-2xl" >
+                    <h2 className="text-black font-bold text-2xl" style={{color: font ? "#fff" : "#000",}} >
                       {card.name}
                     </h2>
                     
