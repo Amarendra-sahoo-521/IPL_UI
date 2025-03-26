@@ -9,20 +9,21 @@
 body{
   background-color: #ffffff00;
  }
-@keyframes rotateCoin {
-    from {
-      transform: rotateY(0deg);
-    }
-    to {
-      transform: rotateY(360deg);
-    }
+ @keyframes jump {
+  0%, 100% {
+      transform: translateY(0px);
   }
+  50% {
+      transform: translateY(5px);
+  }
+}
+
   /* .maincont{
     
    background:  linear-gradient(60deg, #f26522 ,#f26522,#f26522, rgba(255, 255, 255, 0.8) ) ;
   } */
-  .coin:hover {
-    animation: rotateCoin 3s ease-out forwards;
+  .coin {
+    animation: jump 2s ease-out forwards infinite;
   }
  .cap{
   position: absolute;

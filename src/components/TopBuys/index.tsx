@@ -1,4 +1,4 @@
-import { useQueries, useQuery } from "@tanstack/react-query";
+import {  useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getTopPlayer } from "./api";
 import { API_URL, BASE_URL } from "../../utils/endpoint";
@@ -6,8 +6,7 @@ import { formatToIndianShort } from "../../utils/functions";
 import { image_path } from "../../utils/constats";
 
 const ToptenCards = () => {
-  // Create an array of 10 cards
-  //   const cards = Array.from({ length: 10 }, (_, index) => index + 1);
+  
   const { data } = useQuery({
     queryKey: ["topBuy"],
     queryFn: getTopPlayer,
@@ -28,8 +27,6 @@ const ToptenCards = () => {
               className="absolute pcard w-48 h-64 bg-white rounded-lg shadow-lg text-base font-bold "
               style={{
                 zIndex: hoveredCard === index ? 20 : 10 - index,
-                // zIndex: 10 - index,
-                //   transform: `translateX(${index * 126}px)`,
                 transform: `translateX(${index * 126}px) scale(${
                   hoveredCard === index ? 1.2 : 1
                 })`,
@@ -45,7 +42,7 @@ const ToptenCards = () => {
                   item?.team?.banner
                 )}`}
                 alt=""
-                className="absolute h-10 left-36"
+                className="absolute h-10 left-36 "
               />
               <img
                 src={
@@ -54,6 +51,7 @@ const ToptenCards = () => {
                     : image_path.DEFAULT_IMAGE
                 }
                 alt=""
+                className="mt-5"
               />
               <p className="text-center absolute top-52 w-full">{formatToIndianShort(item?.sell_price)}</p>
               <p className="text-center absolute top-56 w-full">{item?.name}</p>
