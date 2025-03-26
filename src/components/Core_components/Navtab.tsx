@@ -8,9 +8,10 @@ const Navtab = ({ menu }: prop) => {
   const [activeTab, setActiveTab] = useState("Home");
 
   return (
-    <nav className="bg-gray-800 shadow-lg">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
+    <nav className=" shadow-lg  h-16   ">
+        <div className="fixed bg-gray-800 w-screen z-50">
+      <div className="max-w-6xl mx-auto px-4 ">
+        <div className="flex justify-between items-center h-16 ">
           {/* Logo on the left */}
           <div className="flex-shrink-0 flex items-center">
             <div className="text-white font-bold text-xl flex ">
@@ -40,6 +41,7 @@ const Navtab = ({ menu }: prop) => {
               ))}
             </div>
           </div>
+        </div>
         </div>
       </div>
     </nav>
