@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { image_path } from "../../utils/constats";
+import { image_path } from "../../utils/constants";
 import TableComponent from "../Core_components/TanstackTable";
 
 const columns1: ColumnDef<any>[] = [

@@ -4,7 +4,7 @@ import Player from "../components/Player";
 import Team from "../components/Team";
 import { NavbarProvider } from "../context/navbarcontext"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { APP_PATH } from "../utils/constats";
+import { APP_PATH } from "../utils/constants";
 import AdminDashboard from "../components/Admin/Player/AdminPlayer";
 import AdminMatches from "../components/Admin/Match/AdminMatch";
 import AdminPointsTable from "../components/Admin/PointsTable/AdminPointsTable";

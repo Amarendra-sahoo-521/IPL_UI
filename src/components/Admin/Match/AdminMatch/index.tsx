@@ -1,5 +1,5 @@
 import {  useState } from "react";
-import { adminMenus } from "../../../../utils/constats"
+import { adminMenus } from "../../../../utils/constants"
 import Navtab from "../../../Core_components/Navtab"
 import TableComponent from "../../../Core_components/TanstackTable";
 import { fatchAdminMatches,  } from "../../../matches/api";

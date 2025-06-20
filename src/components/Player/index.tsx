@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { image_path, menus } from "../../utils/constats";
+import { image_path, menus } from "../../utils/constants";
 import Navtab from "../Core_components/Navtab";
 import { fetchPlayerData } from "./api";
 import { useEffect, useState } from "react";
@@ -71,23 +71,19 @@ function Player() {
     { value: "3", label: "All Rounder" },
   ];
   const selectDb = (e: any) => {
-    // console.log(e.target.value);
     setType(e.target.value);
     setInVall("");
   };
   const callByskill = (e: any) => {
-    // console.log(`url :: &skill=${e.target.value}`);
     setpayload(`&skill=${e.target.value}`);
     setPage(1);
   };
   const callByname = (e: any) => {
-    // console.log(`url :: &name=${e.target.value}`);
     setInVall(e.target.value);
     setpayload(`&name=${e.target.value}`);
     setPage(1);
   };
 
-  // data && console.log(data);
 
   return (
     <>

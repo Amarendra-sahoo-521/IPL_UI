@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { adminMenus, image_path, menus } from "../../../../utils/constats"
+import { adminMenus, image_path, menus } from "../../../../utils/constants"
 import Navtab from "../../../Core_components/Navtab"
 import { formatToIndianShort } from "../../../../utils/functions";
 import { useMutation } from "@tanstack/react-query";

@@ -4,7 +4,7 @@ import { API_URL, BASE_URL } from "../../utils/endpoint";
 import { useEffect, useState } from "react";
 import PaginationTab from "../Core_components/PaginationTab";
 import Navtab from "../Core_components/Navtab";
-import { menus } from "../../utils/constats";
+import { menus } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
 
 type Prop = {

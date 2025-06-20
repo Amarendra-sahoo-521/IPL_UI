@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom"
-import { menus } from "../../utils/constats";
+import { menus } from "../../utils/constants";
 import Navtab from "../Core_components/Navtab"
 import { useQuery } from "@tanstack/react-query";
 import { fetchMatchDetails } from "./api";
 import { Scale } from "lucide-react";
 import { API_URL, BASE_URL } from "../../utils/endpoint";
-import { image_path } from "../../utils/constats";
+import { image_path } from "../../utils/constants";
 
 
 function MatchProfile() {

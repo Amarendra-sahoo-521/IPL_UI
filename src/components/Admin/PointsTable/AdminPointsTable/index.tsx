@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navtab from "../../../Core_components/Navtab";
-import { adminMenus } from "../../../../utils/constats";
+import { adminMenus } from "../../../../utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { PointsTableGetAll } from "../../../PointsTable/api";
 import { ColumnDef } from "@tanstack/react-table";

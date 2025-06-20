@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { image_path } from "../../utils/constats";
+import { image_path } from "../../utils/constants";
 
 type prop = {
     title:string,

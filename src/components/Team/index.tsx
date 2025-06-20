@@ -9,7 +9,7 @@ import Matches from "../matches";
 import NavBar from "../Navbar";
 import { useNavbar } from "../../context/navbarcontext";
 import Navtab from "../Core_components/Navtab";
-import { image_path, menus } from "../../utils/constats";
+import { image_path, menus } from "../../utils/constants";
 
 function Team() {
   const { id } = useParams();

@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import Navtab from "../Core_components/Navtab";
-import { image_path, menus } from "../../utils/constats";
+import { image_path, menus } from "../../utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { getPlayerProfile } from "./api";
 import { isLightColor } from "../../utils/functions";

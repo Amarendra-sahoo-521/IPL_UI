@@ -3,7 +3,7 @@ import { useState } from "react";
 import { getTopPlayer } from "./api";
 import { API_URL, BASE_URL } from "../../utils/endpoint";
 import { formatToIndianShort } from "../../utils/functions";
-import { image_path } from "../../utils/constats";
+import { image_path } from "../../utils/constants";
 
 const ToptenCards = () => {
   

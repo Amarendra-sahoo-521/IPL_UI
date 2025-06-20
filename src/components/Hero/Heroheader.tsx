@@ -2,7 +2,7 @@ import { getorangecap, getPostt, getPurpolCap } from './api';
 import { useQuery } from '@tanstack/react-query';
 import SmoothOverlapSlider from './Hero';
 import Navtab from '../Core_components/Navtab';
-import { image_path, menus } from '../../utils/constats';
+import { image_path, menus } from '../../utils/constants';
 import ToptenCards from '../TopBuys';
 import PointsTable from '../PointsTable';
 import CapTable from '../Cap';
