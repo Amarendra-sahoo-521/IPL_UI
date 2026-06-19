@@ -40,7 +40,7 @@ function Heroheader() {
      
       
   return (
-    <div style={{ overflowX: 'hidden' }}>
+    <div className='w-screen  overflow-hidden'  style={{ overflowX: 'hidden'  }}>
       <Navtab menu = {menus}/>
       {postData1 && <SmoothOverlapSlider cards={postData1.data}  autoPlayInterval = {5000} />}
       <ToptenCards />

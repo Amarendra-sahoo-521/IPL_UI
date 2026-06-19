@@ -67,7 +67,7 @@ const PointsTable = () => {
   });
 
   return (
-    <div className="h-auto my-8 mx-11">
+    <div className="h-auto my-8 mx-2 sm:mx-11">
       <h2 className="text-3xl font-bold mb-5">POINTS TABLE</h2>
       <TableComponent data={data?.data || []} columns={columns} sortable={false}/>
     </div>

@@ -54,7 +54,7 @@ interface capprops {
 
 function CapTable({ data, title }: capprops) {
   return (
-    <div className="h-auto my-12 mx-11">
+    <div className="h-auto my-12 mx-2 sm:mx-11">
       <h2
         className="text-3xl font-bold mb-5"
         style={{ color: title == "ORANGE CAP LIST" ? "#ff8100" : "#7007b4" }}

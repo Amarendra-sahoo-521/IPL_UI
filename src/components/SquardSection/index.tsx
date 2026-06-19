@@ -14,10 +14,9 @@ console.log(players);
     navigate(`/player/${id}`);  
   };
   return (
-    <>
     <div className="h-auto w-auto  m-10">
       <h2 className="text-3xl font-medium">{title}</h2>
-      <div className="pcont flex flex-wrap px-3">
+      <div className="pcont flex justify-center sm:justify-start flex-wrap px-3">
       {players.map((item:any)=>(
         <div 
         className="card h-72 w-60 m-2 text-center bg-white border border-black cursor-pointer"
@@ -44,7 +43,6 @@ console.log(players);
       ))}
       </div>
     </div>
-    </>
   )
 }
 
