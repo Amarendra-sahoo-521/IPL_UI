@@ -2,4 +2,62 @@
 @tailwind components;
 @tailwind utilities;
 
- 
+*{
+  /* font-family: sans-serif; */
+  box-sizing: border-box;
+}
+body{
+  background-color: #ffffff00;
+ }
+ @keyframes jump {
+  0%, 100% {
+      transform: translateY(0px);
+  }
+  50% {
+      transform: translateY(5px);
+  }
+}
+
+  /* .maincont{
+    
+   background:  linear-gradient(60deg, #f26522 ,#f26522,#f26522, rgba(255, 255, 255, 0.8) ) ;
+  } */
+  .coin {
+    animation: jump 2s ease-out forwards infinite;
+  }
+ .cap{
+  position: absolute;
+  top: 415px;
+  left: 71%;
+ }
+ .cup{
+    animation: pop 2s ease-in-out  1 alternate forwards;
+    transition: all 0.5s ease-in-out;
+ }
+ .cup:hover{
+    transform: scale(1.2);
+ }
+ @keyframes pop {
+    0% {
+        
+        margin-top: 64px;
+    }
+    75%{
+        margin-top: -10px; 
+    }
+    100%{
+        margin-top: 0px; 
+    }
+ }
+ .capimg{
+  transition: all 0.5s;
+ }
+ .capimg:hover{
+  transform: scale(1.1);
+ }
+ .card{
+  border-radius: 5px;
+ }
+ .name{
+  border-top: 1px solid black;
+ }

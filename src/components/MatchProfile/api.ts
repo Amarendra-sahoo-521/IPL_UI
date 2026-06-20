@@ -1,9 +1,9 @@
 import axios from "axios";
 import { API_URL, BASE_URL } from "../../utils/endpoint";
 
-export const fetchCardDetails = async (ID :number) => {
+export const fetchMatchDetails = async (ID :number) => {
  
-    const url = `${BASE_URL}${API_URL.TEAM.GETONE}/${ID}`
+    const url = `${BASE_URL}${API_URL.MATCHES.ONE_MATCH}${ID}`
     
     const response = await axios.get(url);
      

@@ -1,19 +1,14 @@
 import  { useState, useEffect, CSSProperties } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { getBanner, getPostt, teamAllData } from './api';
-import { useMutation, useQuery } from '@tanstack/react-query';
 import { API_URL, BASE_URL } from '../../utils/endpoint';
 import { useNavigate } from 'react-router-dom';
+import { isLightColor } from '../../utils/functions';
 
 interface CustomCSSProperties extends CSSProperties {
     // Add any custom properties if needed
     transition?: string; // Optional if you want to define specific transitions
   }
-  function getComplementaryColor(hex:string) { 
-    hex = hex.replace(/^#/, ''); const r = (255 - parseInt(hex.substring(0, 2), 16)).toString(16).padStart(2, '0'); const g = (255 - parseInt(hex.substring(2, 4), 16)).toString(16).padStart(2, '0'); const b = (255 - parseInt(hex.substring(4, 6), 16)).toString(16).padStart(2, '0');
-    
-     return `#${r}${g}${b}`.toUpperCase(); 
-}
+ 
 
 
 type SmoothOverlapSliderProps = {
@@ -26,7 +21,7 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState('');
   
-
+  localStorage.setItem("allData", JSON.stringify(cards));
 
  
   const navigate = useNavigate();
@@ -98,12 +93,11 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
     };
   };
 
+
   return (
-    <div className="w-screen py-8 bg-[#ff0707] overflow-hidden absolute top-16 ">
+    <div className="w-screen py-2 sm:py-8 bg-[#bddad295] overflow-hidden top-16 ">
       <div className="container relative ">
-        <h2 className="text-white text-xl mx-10 font-bold mb-6">{title}</h2>
-        
-        {/* Navigation Buttons */}
+      
         <button 
           onClick={handlePrev} 
           className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/50 rounded-full p-2 hover:bg-black/70"
@@ -113,18 +107,21 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
         
         <button 
           onClick={handleNext} 
-          className="absolute -right-[125px] top-1/2 -translate-y-1/2 z-30 bg-black/50 rounded-full p-2 hover:bg-black/70"
+          className="absolute right-[12px] sm:-right-[125px] top-1/2 -translate-y-1/2 z-30 bg-black/50 rounded-full p-2 hover:bg-black/70"
         >
           <ChevronRight color="white" size={24} />
         </button>
 
         {/* Slider Container */}
-        <div className="flex items-center justify-center w-screen relative h-96  ">
+        <div className="flex items-center justify-center w-screen relative h-60 sm:h-96  ">
           {/* Render cards with dynamic positioning */}
           {[...Array(3)].map((_, i) => {
             const card:any = getCardAtOffset(i - 1); 
             const cardStyles = getCardStyles(i - 1);
-        
+            const font = isLightColor(card.them);
+            // console.log('font----------->',font);
+            
+            
             
             return (
               <div 
@@ -135,14 +132,17 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
                   } as CustomCSSProperties} 
               >
                
-                <div className="w-2/5 h-56 bg-slate-400 cursor-pointer rounded-xl overflow-hidden shadow-2xl" onClick={()=>handleClick(card.id)}>
+                <div className="w-2/5  h-30 sm:h-56 cursor-pointer rounded-xl overflow-hidden shadow-2xl" 
+                onClick={()=>handleClick(card.id)}
+                style={{backgroundColor: card.them, }}
+                >
                   <img 
                   src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(card.banner)}`}
                   alt= {card.name}
                  
-                  className="w-40 h-40 mx-auto overflow-hidden object-cover"  /> 
-                  <div className="p-4 w-full  flex justify-center">
-                    <h2 className="text-black font-bold text-2xl" >
+                  className="sm:w-40 w-20 h-20 sm:h-40 mx-auto  overflow-hidden object-cover"  /> 
+                  <div className="p-2 sm:p-4 w-full  flex justify-center">
+                    <h2 className="text-black font-bold text-[10px] sm:text-2xl" style={{color: font ? "#fff" : "#000",}} >
                       {card.name}
                     </h2>
                     
