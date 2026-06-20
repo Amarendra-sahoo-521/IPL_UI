@@ -44,9 +44,9 @@ function Team() {
     const bowler = res.players.filter((item: any) => item.designation == 2);
     const allRounder = res.players.filter((item: any) => item.designation == 3);
     return (
-      <>
+      <div className=" overflow-hidden  ">
         <Navtab menu={menus} />
-        <div className="pannel h-24 w-full left-0 top-0 flex overflow-hidden justify-evenly bg-[#bddad295] max-sm:justify-start">
+        <div className=" h-24 w-full left-0 top-0 flex overflow-hidden justify-evenly bg-[#bddad295] max-sm:justify-start">
           <div className="flex w-full sm:justify-evenly max-sm:animate-marquee ">
             {allData?.map((item: any, index: number) => (
               <div
@@ -95,7 +95,6 @@ function Team() {
                   />
                 ))}
 
-                {/* <span className='mt-4 text-xl font-bold  '>{res.winning_year} </span> */}
               </p>
             </div>
           </div>
@@ -120,7 +119,6 @@ function Team() {
                 ></i>
               </div>
             </div>
-            {/* captain image section */}
             <div className="cont h-48 w-52   my-12 ">
               <div className="capimg h-auto w-auto ">
                 <img
@@ -139,7 +137,7 @@ function Team() {
           </div>
         </div>
         <div
-          className="maincont h-72 w-full sm:hidden flex justify-evenly "
+          className="maincont h-72 w-full sm:hidden overflow-hidden flex justify-evenly "
           style={{
             background: `linear-gradient(90deg, ${res.them},${res.them},white , white )`,
             // background: `linear-gradient(55deg, ${res.them} 70%, rgba(255, 255, 255, 0.8) 30%)`,
@@ -174,27 +172,7 @@ function Team() {
             </div>
           </div>
           <div className="right flex  h-72 w-1/2  my-auto ">
-            {/* <div className="cont h-48 w-80  my-12 ml-2 mr-24 ">
-              <div className="row h-16  w-full mt-16   ">
-                <p className="  mx-auto font-bold text-2xl text-center ">
-                  Home Ground :
-                </p>
-                <p className="   font-bold text-2xl text-center">
-                  {" "}
-                  {res.venue}
-                </p>
-              </div>
-              <div className="cap flex">
-                <p className="  mx-auto font-bold text-2xl text-center">
-                  Captain
-                </p>
-                <i
-                  className="fa-solid fa-arrow-right fa-flip text-3xl "
-                  style={{ marginTop: "5px", marginLeft: "5px " }}
-                ></i>
-              </div>
-            </div> */}
-            {/* captain image section */}
+            
             <div className="cont h-48 w-52   my-10 ">
               <div className="capimg h-auto w-auto ">
                 <img
@@ -206,7 +184,7 @@ function Team() {
                   alt={res?.captainData?.name}
                 />
               </div>
-              <div className="capname h-10 w-52 flex justify-center flex-wrap items-center text-2xl font-bold text-black ">
+              <div className="capname h-10 w-52 flex justify-center flex-wrap items-center text-xl font-bold text-black ">
                 <p>{res.captainData.name}</p>
               </div>
             </div>
@@ -234,7 +212,7 @@ function Team() {
             <Matches id={res.id} homematch={true} />
           </div>
         ) : null}
-      </>
+      </div>
     );
   }
 }

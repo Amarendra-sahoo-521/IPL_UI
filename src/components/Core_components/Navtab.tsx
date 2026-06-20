@@ -9,7 +9,7 @@ const Navtab = ({ menu }: prop) => {
    const [isOpen, setIsOpen] = useState(false);
    
   return (
-   <nav className="h-16">
+   <nav className="h-16 ">
       <div className="fixed bg-gray-800 w-screen z-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between items-center h-16">

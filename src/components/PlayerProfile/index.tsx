@@ -13,12 +13,18 @@ function PlayerProfile() {
   });
   console.log(data);
 
+  const specialization =
+    data?.data?.designation == 1
+      ? "Batsman"
+      : data?.data?.designation == 2
+        ? "Bowler"
+        : "All Rounder";
   return (
     data && (
-      <div>
+      <div className="overflow-hidden">
         <Navtab menu={menus} />
         <div
-          className="cont w-screen flex justify-around "
+          className="cont w-screen hidden sm:flex justify-around "
           style={{ backgroundColor: data.data.team.them, height: "89.9vh" }}
         >
           <div
@@ -94,6 +100,122 @@ function PlayerProfile() {
                   Nationality 
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          className="w-screen flex sm:hidden flex-col items-center px-4 pt-20  pb-8"
+          style={{ backgroundColor: data.data.team.them, minHeight: "100vh" }}
+        >
+          {/* Photo */}
+          
+          <div className="h-44 w-44 border-[6px] border-white  flex items-end justify-center relative"
+          >
+            <img
+              src={
+                data?.data?.photo ? data?.data?.photo : image_path.DEFAULT_IMAGE
+              }
+              alt=""
+              className="w-full"
+              style={{
+                transform: data?.data?.photo
+                  ? "scale(1.5) translateY(-28px)"
+                  : "scale(1) translateY(10px)",
+              }}
+            />
+          </div>
+
+
+          {/* Name */}
+          <p
+            className="mt-3 text-2xl font-bold text-center"
+            style={{
+              color: isLightColor(data?.data?.team?.them) ? "#fff" : "#000",
+            }}
+          >
+            {data?.data?.name}
+          </p>
+
+          {/* Overview */}
+          <div
+            className="w-full max-w-sm mt-6 pt-4"
+            style={{
+              borderTop: `1px solid ${isLightColor(data?.data?.team?.them) ? "#fff" : "#000"}`,
+            }}
+          >
+            <p
+              className="text-lg font-bold text-center mb-4"
+              style={{
+                color: isLightColor(data?.data?.team?.them) ? "#fff" : "#000",
+              }}
+            >
+              Player Overview
+            </p>
+
+            <div className="text-center mb-4">
+              <p
+                className="text-xl font-semibold"
+                style={{
+                  color: isLightColor(data?.data?.team?.them) ? "#fff" : "#000",
+                }}
+              >
+                {specialization}
+              </p>
+              <p
+                className="text-xs opacity-75"
+                style={{
+                  color: isLightColor(data?.data?.team?.them) ? "#fff" : "#000",
+                }}
+              >
+                Specialization
+              </p>
+            </div>
+
+            <div className="flex justify-center gap-10">
+              <div className="text-center">
+                <p
+                  className="text-lg font-semibold"
+                  style={{
+                    color: isLightColor(data?.data?.team?.them)
+                      ? "#fff"
+                      : "#000",
+                  }}
+                >
+                  {data?.data?.debut_year}
+                </p>
+                <p
+                  className="text-xs opacity-75"
+                  style={{
+                    color: isLightColor(data?.data?.team?.them)
+                      ? "#fff"
+                      : "#000",
+                  }}
+                >
+                  IPL Debut
+                </p>
+              </div>
+              <div className="text-center">
+                <p
+                  className="text-lg font-semibold"
+                  style={{
+                    color: isLightColor(data?.data?.team?.them)
+                      ? "#fff"
+                      : "#000",
+                  }}
+                >
+                  {data?.data?.from}
+                </p>
+                <p
+                  className="text-xs opacity-75"
+                  style={{
+                    color: isLightColor(data?.data?.team?.them)
+                      ? "#fff"
+                      : "#000",
+                  }}
+                >
+                  Nationality
+                </p>
               </div>
             </div>
           </div>

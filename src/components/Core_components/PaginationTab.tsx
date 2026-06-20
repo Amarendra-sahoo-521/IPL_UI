@@ -16,9 +16,9 @@ function PaginationTab({ currentPage = 1, totalResults = 0, onPageChange }: any)
   const pages = totalPages > 0 ? Array.from({ length: endPage - startPage + 1 }, (_, i) => startPage + i) : [];
 
   return (
-    <div className="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
-      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
-        <p className="text-sm text-gray-700">
+    <div className="flex items-center justify-between border-t w-full  overflow-scroll border-gray-200   py-3 px-6">
+      <div className="flex w-full justify-end   sm:flex-1 sm:items-center sm:justify-between">
+        <p className="text-sm hidden sm:block text-gray-700">
           Showing{" "}
           <span className="font-medium">{Math.min((safeCurrentPage - 1) * itemsPerPage + 1, safeTotalResults)}</span>{" "}
           to{" "}
@@ -26,7 +26,7 @@ function PaginationTab({ currentPage = 1, totalResults = 0, onPageChange }: any)
           <span className="font-medium">{safeTotalResults}</span> results
         </p>
 
-        <nav aria-label="Pagination" className="isolate inline-flex -space-x-px rounded-md shadow-xs">
+        <nav aria-label="Pagination" className="isolate inline-flex overflow-scroll -space-x-px rounded-md shadow-xs">
           {/* Previous Button */}
           <button
             onClick={() => onPageChange(Math.max(1, safeCurrentPage - 1))}

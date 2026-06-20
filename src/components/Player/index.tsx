@@ -30,7 +30,7 @@ function Player() {
       header: "name",
       accessorKey: "name",
       cell: ({ row }) => (
-        <div className="px-6 flex justify-start items-end">
+        <div className=" sm:px-6 flex justify-start items-end">
           <img
             src={
               row.original.photo ? row.original.photo : image_path.DEFAULT_IMAGE
@@ -88,8 +88,8 @@ function Player() {
   return (
     <>
       <Navtab menu={menus} />
-      <div className="form w-[90%] mx-auto flex bg-gray-100 h-40 px-10 py-5">
-        <div className="sildiv w-1/4">
+      <div className="form w-full  sm:flex bg-gray-100 min-h-40 px-10 py-5">
+        <div className="sildiv w-full sm:w-1/4">
           <Dropdown
             label="Filter By"
             name="criteria"
@@ -97,7 +97,7 @@ function Player() {
             onChange={(e) => selectDb(e)}
           />
         </div>
-        <div className="div w-1/4 mx-5">
+        <div className="div sm:w-1/4 w-full sm:mx-5">
           {type === "skill" ? (
             <Dropdown
               label="Skill"
