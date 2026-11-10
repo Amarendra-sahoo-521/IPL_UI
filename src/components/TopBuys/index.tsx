@@ -39,7 +39,7 @@ const ToptenCards = () => {
             >
               {/* Team banner */}
               <img
-                src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(item?.team?.banner)}`}
+                src={`${BASE_URL}/${item?.team?.banner?.replace("uploads", "uploads/")}`}
                 alt=""
                 className="absolute h-10 right-2 top-2"
               />

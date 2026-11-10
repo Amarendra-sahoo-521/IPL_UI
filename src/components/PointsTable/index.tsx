@@ -12,7 +12,7 @@ const columns: ColumnDef<any>[] = [
     cell: ({ row }) => (
       <div className="flex items-center justify-center" >
         <img
-          src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(row.original.team_data?.logo)}`}
+          src={`${BASE_URL}/${row.original.team_data?.logo?.replace("uploads", "uploads/")}`}
           alt={row.original.team_data?.short_name}
           className="h-10 w-10"
         />

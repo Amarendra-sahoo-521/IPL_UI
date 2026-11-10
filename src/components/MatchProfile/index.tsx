@@ -50,7 +50,7 @@ function MatchProfile() {
             </div>
             <div className="h-full w-1/2 ">
               <img
-                src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(data?.hometeam_data?.banner)}`}
+                src={`${BASE_URL}${data?.hometeam_data?.banner.replace("uploads", "uploads/")}`}
                 alt=""
                 className="h-28 w-28"
               />
@@ -66,7 +66,7 @@ function MatchProfile() {
             </div>
             <div className="h-full w-1/2 ">
               <img
-                src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(data?.awayteam_data?.banner)}`}
+                src={`${BASE_URL}/${data?.awayteam_data?.banner.replace("uploads", "uploads/")}`}
                 alt=""
                 className="h-28 w-28 absolute right-0"
               />
@@ -97,9 +97,7 @@ function MatchProfile() {
                 style={{ background: data?.hometeam_data?.them }}
               >
                 <img
-                  src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                    data?.hometeam_data?.banner,
-                  )}`}
+                  src={`${BASE_URL}/${data?.hometeam_data?.banner.replace("uploads", "uploads/")}`}
                   alt=""
                   className="h-9 w-9 self-start"
                 />
@@ -125,9 +123,7 @@ function MatchProfile() {
                 style={{ background: data?.awayteam_data?.them }}
               >
                 <img
-                  src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                    data?.awayteam_data?.banner,
-                  )}`}
+                  src={`${BASE_URL}/${data?.awayteam_data?.banner.replace("uploads", "uploads/")}`}
                   alt=""
                   className="h-9 w-9 self-end"
                 />

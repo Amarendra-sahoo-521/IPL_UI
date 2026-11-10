@@ -1,4 +1,5 @@
-export const BASE_URL ='http://localhost:4002'
+// export const BASE_URL ='http://localhost:4002'
+export const BASE_URL ='https://ipl-api-eta.vercel.app'
 export const API_URL = {
     TEAM : {
         GETALL : '/team/all',

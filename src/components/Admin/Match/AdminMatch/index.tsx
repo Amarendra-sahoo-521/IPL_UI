@@ -17,9 +17,10 @@ function AdminMatches() {
         cell: ({ row }) => (
           <div className="h-8  flex justify-center" style={{backgroundColor: row.original.wonTeam == row.original.homeTeam ? 'green':''}}>
             <img
-              src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                row.original.hometeam_data.logo
-              )}`}
+              // src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
+              //   row.original.hometeam_data.logo
+              // )}`}
+              src={`${BASE_URL}/${row.original.hometeam_data.banner.replace("uploads", "uploads/")}`}
               alt=""
               className="mx-2"
               style={{ marginLeft: "-25px" }}
@@ -41,9 +42,8 @@ function AdminMatches() {
               {row.original.awayteam_data.short_name}
             </p>
             <img
-              src={`${BASE_URL}${
-                API_URL.TEAM.BANNER
-              }/${encodeURIComponent(row.original.awayteam_data.logo)}`}
+              src={`${BASE_URL}/${row.original.awayteam_data.banner.replace("uploads", "uploads/")}`}
+                
               alt=""
               className=" mx-2"
             />

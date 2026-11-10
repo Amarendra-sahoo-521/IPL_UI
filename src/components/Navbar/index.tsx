@@ -23,7 +23,6 @@ const NavBar = ({bgc}:prop) => {
   };
   
   return (
-    <>
     <div className="w-auto  flex justify-center py-2">
       <div className="mx-auto">
         <nav className="flex items-center rounded-lg overflow-hidden h-10" style={{backgroundColor: '#00091a'}}>
@@ -47,7 +46,6 @@ const NavBar = ({bgc}:prop) => {
       </div>
     </div>
     
-    </>
   );
 };
 

@@ -17,9 +17,10 @@ const Navtab = ({ menu }: prop) => {
             <div className="flex-shrink-0 flex items-center">
               <div className="text-white font-bold text-xl flex items-center">
                 <img
-                  src="https://documents.iplt20.com/ipl/assets/images/favicon.ico"
+                  src="/public/Download_Indian_Premier_League_IPL_Icon_on_Transparent_Background-removebg-preview.svg"
                   alt="logo"
-                  className="scale-75"
+                  width={40}
+                  className="scale-25 "
                 />
                 <p className="my-auto">Iplaura</p>
               </div>
