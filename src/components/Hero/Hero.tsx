@@ -137,7 +137,7 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
                 style={{backgroundColor: card.them, }}
                 >
                   <img 
-                  src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(card.banner)}`}
+                  src={`${BASE_URL}/${card.banner.replace("uploads", "uploads/")}`}
                   alt= {card.name}
                  
                   className="sm:w-40 w-20 h-20 sm:h-40 mx-auto  overflow-hidden object-cover"  /> 

@@ -57,7 +57,7 @@ function Matches({ id = 0, homematch = false }: Prop) {
           <p className="bold font-medium text-xl sm:text-3xl">Matches</p>
           {data.map((item: any) => (
             <>
-              <div
+              <button
                 className="mx-10 my-5 h-28 w-auto hidden sm:flex"
                 key={item.id}
                 style={{ borderBottom: "1px solid black", cursor: "pointer" }}
@@ -124,8 +124,8 @@ function Matches({ id = 0, homematch = false }: Prop) {
                     {item.groundName}
                   </p>
                 </div>
-              </div>
-              <div
+              </button>
+              <button
                 key={item.id}
                 onClick={() => goToMatchProfile(item.id)}
                 className="rounded-xl p-4 mx-3 my-3 block sm:hidden cursor-pointer active:scale-[0.98] transition-transform"
@@ -173,9 +173,7 @@ function Matches({ id = 0, homematch = false }: Prop) {
                       }}
                     >
                       <img
-                        src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                          item.hometeam_data.logo,
-                        )}`}
+                        src={`${BASE_URL}/${item.hometeam_data.logo?.replace("uploads", "uploads/")}`}
                         alt={item.hometeam_data.name}
                         className="w-9 h-9 object-contain"
                       />
@@ -204,9 +202,7 @@ function Matches({ id = 0, homematch = false }: Prop) {
                       }}
                     >
                       <img
-                        src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                          item.awayteam_data.logo,
-                        )}`}
+                        src={`${BASE_URL}/${item.awayteam_data.logo?.replace("uploads", "uploads/")}`}
                         alt={item.awayteam_data.name}
                         className="w-9 h-9 object-contain"
                       />
@@ -236,7 +232,7 @@ function Matches({ id = 0, homematch = false }: Prop) {
                     {item.groundName}
                   </p>
                 </div>
-              </div>
+              </button>
             </>
           ))}
           {id === 0 && (

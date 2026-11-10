@@ -53,7 +53,7 @@ function Team() {
                 key={index}
                 className="h-20 min-w-20 m-2 rounded-md cursor-pointer shrink-0"
                 style={{
-                  backgroundImage: `url(${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(item.banner)})`,
+                  backgroundImage: `url(${BASE_URL}/${item.banner.replace("uploads", "uploads/")})`,
                   backgroundSize: "cover",
                   backgroundColor: item.them,
                 }}
@@ -73,9 +73,7 @@ function Team() {
         >
           <div className="left sm: h-72 w-1/2 my-auto flex ">
             <img
-              src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                res.logo,
-              )}`}
+              src={`${BASE_URL}/${res.logo?.replace("uploads", "uploads/")}`}
               // src='https://documents.iplt20.com/ipl/IPLHeadshot2024/102.png'
               alt="logo"
               className="h-40 w-40 my-auto ml-16 coin"
@@ -147,9 +145,7 @@ function Team() {
         >
           <div className="left sm: h-25 w-1/2 my-auto  ">
             <img
-              src={`${BASE_URL}${API_URL.TEAM.BANNER}/${encodeURIComponent(
-                res.logo,
-              )}`}
+              src={`${BASE_URL}/${res.logo?.replace("uploads", "uploads/")}`}
               alt="logo"
               className="h-20 w-20 my-auto ml-16 coin"
               style={{ transformStyle: "preserve-3d" }}
