@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchCardDetails } from "./api";
-import { API_URL, BASE_URL } from "../../utils/endpoint";
+import {  BASE_URL } from "../../utils/endpoint";
 import { isLightColor } from "../../utils/functions";
 import { useEffect, useState } from "react";
 import SquardSection from "../SquardSection";

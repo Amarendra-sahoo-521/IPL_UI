@@ -4,7 +4,7 @@ import Navtab from "../../../Core_components/Navtab"
 import TableComponent from "../../../Core_components/TanstackTable";
 import { fatchAdminMatches,  } from "../../../matches/api";
 import {  useQuery } from "@tanstack/react-query";
-import { API_URL, BASE_URL } from "../../../../utils/endpoint";
+import {  BASE_URL } from "../../../../utils/endpoint";
 import { ColumnDef } from "@tanstack/react-table";
 import MatchEdit from "../MatchEdit";
 

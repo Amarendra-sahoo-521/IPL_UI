@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import Navtab from "../../../Core_components/Navtab";
 import { adminMenus } from "../../../../utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { PointsTableGetAll } from "../../../PointsTable/api";
 import { ColumnDef } from "@tanstack/react-table";
-import { API_URL, BASE_URL } from "../../../../utils/endpoint";
+import {  BASE_URL } from "../../../../utils/endpoint";
 import TableComponent from "../../../Core_components/TanstackTable";
 import PointEdit from "../PointEdit/index copy";
 

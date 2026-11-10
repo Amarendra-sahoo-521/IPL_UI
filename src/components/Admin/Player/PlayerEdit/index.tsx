@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ModalForm from "../../../Core_components/Modal";
 import { editPlayerData } from "./api";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 
 interface PlayerEditProps {
   data: any;

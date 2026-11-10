@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { getTopPlayer } from "./api";
-import { API_URL, BASE_URL } from "../../utils/endpoint";
+import {  BASE_URL } from "../../utils/endpoint";
 import { formatToIndianShort } from "../../utils/functions";
 import { image_path } from "../../utils/constants";
 

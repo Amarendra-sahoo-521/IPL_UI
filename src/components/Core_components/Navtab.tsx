@@ -5,7 +5,7 @@ type prop = {
   menu: {name:string, path:string}[];
 };
 const Navtab = ({ menu }: prop) => {
-  const [activeTab, setActiveTab] = useState("Home");
+  // const [activeTab, setActiveTab] = useState("Home");
    const [isOpen, setIsOpen] = useState(false);
    
   return (

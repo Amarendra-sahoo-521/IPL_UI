@@ -2,7 +2,8 @@ import { createContext, ReactNode, useContext, useState } from "react";
 
 export const navbarContext = createContext({
     activeItem: "",
-    setActiveItem: (item: string) => {}
+    setActiveItem: (item: string) => {console.log(item);
+    }
 });
 
 export const useNavbar = ()=>{

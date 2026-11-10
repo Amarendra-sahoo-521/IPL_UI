@@ -2,11 +2,10 @@ import { getorangecap, getPostt, getPurpolCap } from './api';
 import { useQuery } from '@tanstack/react-query';
 import SmoothOverlapSlider from './Hero';
 import Navtab from '../Core_components/Navtab';
-import { image_path, menus } from '../../utils/constants';
+import {  menus } from '../../utils/constants';
 import ToptenCards from '../TopBuys';
 import PointsTable from '../PointsTable';
 import CapTable from '../Cap';
-import TanStackTableApiExample from '../Core_components/TanstackTable';
 
 function Heroheader() {
 
@@ -23,21 +22,7 @@ function Heroheader() {
         queryFn: getPurpolCap,
       });
 
-    const orange_cap_ths = [
-      'No',
-      'Player',
-      'Matches',
-      'Runs',
-      'Strike Rate'
-    ]
-    const purple_cap_ths = [
-      'No',
-      'Player',
-      'Matches',
-      'Wickets',
-      'Economy'
-    ]
-     
+
       
   return (
     <div className='w-screen  overflow-hidden'  style={{ overflowX: 'hidden'  }}>

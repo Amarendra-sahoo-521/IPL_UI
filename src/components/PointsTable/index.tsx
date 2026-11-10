@@ -1,5 +1,5 @@
 import { ColumnDef } from "@tanstack/react-table";
-import { API_URL, BASE_URL } from "../../utils/endpoint";
+import {  BASE_URL } from "../../utils/endpoint";
 import { image_path } from "../../utils/constants";
 import { useQuery } from "@tanstack/react-query";
 import { PointsTableGetAll } from "./api";

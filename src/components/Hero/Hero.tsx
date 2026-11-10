@@ -1,6 +1,6 @@
 import  { useState, useEffect, CSSProperties } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { API_URL, BASE_URL } from '../../utils/endpoint';
+import {  BASE_URL } from '../../utils/endpoint';
 import { useNavigate } from 'react-router-dom';
 import { isLightColor } from '../../utils/functions';
 
@@ -20,6 +20,7 @@ type SmoothOverlapSliderProps = {
 const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSliderProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState('');
+  console.log(title, direction);
   
   localStorage.setItem("allData", JSON.stringify(cards));
 
