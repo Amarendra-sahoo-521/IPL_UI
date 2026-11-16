@@ -17,7 +17,7 @@ const Navtab = ({ menu }: prop) => {
             <div className="flex-shrink-0 flex items-center">
               <div className="text-white font-bold text-xl flex items-center">
                 <img
-                  src="/public/Download_Indian_Premier_League_IPL_Icon_on_Transparent_Background-removebg-preview.svg"
+                  src="https://raw.githubusercontent.com/Amarendra-sahoo-521/IPL_UI/5906ba1727bf4e64a931a1aa6eb3e532cb45eda8/public/Download_Indian_Premier_League_IPL_Icon_on_Transparent_Background-removebg-preview.svg"
                   alt="logo"
                   width={40}
                   className="scale-25 "
