@@ -1,7 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import { fetchCardDetails } from "./api";
-import {  BASE_URL } from "../../utils/endpoint";
+import { BASE_URL } from "../../utils/endpoint";
 import { isLightColor } from "../../utils/functions";
 import { useEffect, useState } from "react";
 import SquardSection from "../SquardSection";
@@ -10,6 +10,7 @@ import NavBar from "../Navbar";
 import { useNavbar } from "../../context/navbarcontext";
 import Navtab from "../Core_components/Navtab";
 import { image_path, menus } from "../../utils/constants";
+import Loader from "../loader";
 
 function Team() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ function Team() {
   const { activeItem } = useNavbar();
 
   // api calls
-  const { mutate, data } = useMutation({
+  const { mutate, data, isPending, isError } = useMutation({
     mutationFn: (id: number) => fetchCardDetails(id),
   });
   useEffect(() => {
@@ -25,6 +26,20 @@ function Team() {
       mutate(idd);
     }
   }, [idd]);
+
+  console.log("isPending || (!data && !isError)", isPending, !data && !isError);
+
+  if (isPending || (!data && !isError)) {
+    return <Loader fullScreen />;
+  }
+  if (isError) {
+    return (
+      <div className="p-6 text-center">
+        Failed to load team. Please try again.
+      </div>
+    );
+  }
+
   if (data) {
     const res = data.data;
 
@@ -43,23 +58,31 @@ function Team() {
     const batter = res.players.filter((item: any) => item.designation == 1);
     const bowler = res.players.filter((item: any) => item.designation == 2);
     const allRounder = res.players.filter((item: any) => item.designation == 3);
+
     return (
       <div className=" overflow-hidden  ">
         <Navtab menu={menus} />
         <div className=" h-24 w-full left-0 top-0 flex overflow-hidden justify-evenly bg-[#bddad295] max-sm:justify-start">
           <div className="flex w-full sm:justify-evenly max-sm:animate-marquee ">
-            {allData?.map((item: any, index: number) => (
-              <div
-                key={index}
-                className="h-20 min-w-20 m-2 rounded-md cursor-pointer shrink-0"
-                style={{
-                  backgroundImage: `url(${BASE_URL}/${item.banner.replace("uploads", "uploads/")})`,
-                  backgroundSize: "cover",
-                  backgroundColor: item.them,
-                }}
-                onClick={() => setIdd(item.id)}
-              ></div>
-            ))}
+            {allData?.map((item: any, index: number) => {
+              
+              const bannerPath = item.banner.replace(/\\/g, "/");
+
+              const bannerUrl = `${BASE_URL}/${bannerPath}`;
+
+              return (
+                <button
+                  key={index}
+                  className="h-20 min-w-20 m-2 rounded-md cursor-pointer shrink-0"
+                  style={{
+                    backgroundImage: `url("${bannerUrl}")`,
+                    backgroundSize: "cover",
+                    backgroundColor: item.them,
+                  }}
+                  onClick={() => setIdd(item.id)}
+                ></button>
+              );
+            })}
           </div>
         </div>
         <div
@@ -84,15 +107,17 @@ function Team() {
               <h1 className="text-5xl font-bold">{res.name}</h1>
               <p className="flex mt-2 h-16 w-auto overflow-hidden">
                 {trophy.map((item: any, index: number) => (
-                  <img
-                    key={index}
-                    src="https://www.iplt20.com/assets/images/teams-trophy.svg"
-                    alt={item}
-                    title={item}
-                    className="cup h-16 w-12 mx-1"
-                  />
+                  // <img
+                  //   key={index}
+                  //   src="https://www.iplt20.com/assets/images/teams-trophy.svg"
+                  //   alt={item}
+                  //   title={item}
+                  //   className="cup h-16 w-12 mx-1"
+                  // />
+                  <span title={item} key={index} className="cup h-6 w-6 mx-1">
+                    🏆
+                  </span>
                 ))}
-
               </p>
             </div>
           </div>
@@ -163,12 +188,10 @@ function Team() {
                     className="cup h-12 w-8 mx-1"
                   />
                 ))}
-
               </p>
             </div>
           </div>
           <div className="right flex  h-72 w-1/2  my-auto ">
-            
             <div className="cont h-48 w-52   my-10 ">
               <div className="capimg h-auto w-auto ">
                 <img

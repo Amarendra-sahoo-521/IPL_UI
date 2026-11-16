@@ -6,6 +6,7 @@ import PaginationTab from "../Core_components/PaginationTab";
 import Navtab from "../Core_components/Navtab";
 import { menus } from "../../utils/constants";
 import { useNavigate } from "react-router-dom";
+import Loader from "../loader";
 
 type Prop = {
   id?: number;
@@ -28,7 +29,7 @@ function Matches({ id = 0, homematch = false }: Prop) {
     enabled: id !== 0 && homematch,
   });
 
-  const matchMutation = useMutation({
+  const {mutate:matchMutation, data:d,isPending} = useMutation({
     mutationFn: (page: number) => fatchAllMatches(page),
   });
   const navigate = useNavigate();
@@ -38,27 +39,33 @@ function Matches({ id = 0, homematch = false }: Prop) {
 
   useEffect(() => {
     if (id === 0) {
-      matchMutation.mutate(page);
+      matchMutation(page);
     }
   }, [page, id]);
 
   const data =
     id === 0
-      ? matchMutation.data
+      ? d
       : homematch
         ? homeMatchQuery.data
         : matchQuery.data;
+
+        
+  if (isPending ) {
+    return <Loader fullScreen />;
+  }
 
   return (
     <div className="">
       {id === 0 && <Navtab menu={menus} />}
       {data && (
-        <div className="sm:p-10 p-2 h-auto w-auto">
+        <div className="sm:p-10 p-2 h-auto w-full ">
           <p className="bold font-medium text-xl sm:text-3xl">Matches</p>
+          <div className="flex justify-center flex-col">
           {data.map((item: any) => (
             <>
               <button
-                className="mx-10 my-5 h-28 w-auto hidden sm:flex"
+                className="mx-10 my-5  h-28  hidden sm:flex"
                 key={item.id}
                 style={{ borderBottom: "1px solid black", cursor: "pointer" }}
                 onClick={() => goToMatchProfile(item.id)}
@@ -235,6 +242,7 @@ function Matches({ id = 0, homematch = false }: Prop) {
               </button>
             </>
           ))}
+          </div>
           {id === 0 && (
             <PaginationTab
               currentPage={page}

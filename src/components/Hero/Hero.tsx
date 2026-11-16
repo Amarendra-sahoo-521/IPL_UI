@@ -96,7 +96,7 @@ const SmoothOverlapSlider = ({ cards, title, autoPlayInterval}: SmoothOverlapSli
 
 
   return (
-    <div className="w-screen py-2 sm:py-8 bg-[#bddad295] overflow-hidden top-16 ">
+    <div className="w-full py-2 sm:py-8 bg-[#bddad295] overflow-hidden top-16 ">
       <div className="container relative ">
       
         <button 

@@ -4,17 +4,23 @@ import Navtab from "../Core_components/Navtab";
 import { useQuery } from "@tanstack/react-query";
 import { fetchMatchDetails } from "./api";
 import {  BASE_URL } from "../../utils/endpoint";
+import Loader from "../loader";
 
 function MatchProfile() {
   const { id } = useParams();
-  let { data } = useQuery({
+  let { data,isLoading } = useQuery({
     queryKey: ["match details"],
     queryFn: () => id && fetchMatchDetails(parseInt(id)),
   });
   data = data && data.data;
   data && console.log(data);
+
+   if (isLoading ) {
+    return <Loader fullScreen />;
+  }
+
   return (
-    <div className="h-screen w-screen overflow-hidden">
+    <div className="h-screen w-full overflow-hidden">
       <Navtab menu={menus} />
       {data && (
         <>
@@ -48,7 +54,7 @@ function MatchProfile() {
             </div>
             <div className="h-full w-1/2 ">
               <img
-                src={`${BASE_URL}${data?.hometeam_data?.banner.replace("uploads", "uploads/")}`}
+                src={`${BASE_URL}/${data?.hometeam_data?.banner.replace(/\\/g, "/")}`}
                 alt=""
                 className="h-28 w-28"
               />
@@ -64,7 +70,7 @@ function MatchProfile() {
             </div>
             <div className="h-full w-1/2 ">
               <img
-                src={`${BASE_URL}/${data?.awayteam_data?.banner.replace("uploads", "uploads/")}`}
+                src={`${BASE_URL}/${data?.awayteam_data?.banner.replace(/\\/g, "/")}`}
                 alt=""
                 className="h-28 w-28 absolute right-0"
               />
